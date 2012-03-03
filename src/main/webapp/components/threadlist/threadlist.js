@@ -7,11 +7,11 @@ steal('jquery/class',
   
 	/*  MODEL */
 	$.Model('Thread', {
-		findAll: "GET /comments/threads",
-		findOne: "GET /comments/threads/{id}",
-		create: "POST /comments/threads",
-		update: "PUT /comments/threads/{id}",
-		destroy: "DELETE /comments/threads/{id}"
+		findAll: "GET /threads",
+		findOne: "GET /threads/{id}",
+		create: "POST /threads",
+		update: "PUT /threads/{id}",
+		destroy: "DELETE /threads/{id}"
 	}, {});
 	
 	
@@ -31,9 +31,11 @@ steal('jquery/class',
 			this.element.html('components/threadlist/thread.ejs', Thread.findAll());
 		},
 		"{itemTag} click" : function(li, event){
+			console.log("thread click");
 			event.preventDefault();
 		    // let other controls know what happened
-		    li.trigger('thread_open',  li.model().id);
+			var commentPage="comments";
+		    li.trigger('pageChanged', {url: "comments", params: li.model().id});
 		 },
 		 "{itemTag} dblclick" : function(li, event){
 			 
