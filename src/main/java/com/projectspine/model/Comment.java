@@ -1,10 +1,8 @@
 package com.projectspine.model;
 
-import org.springframework.data.annotation.Id;
 
 public class Comment {
 	
-	@Id
 	long id;
 	
 	//Id of parent thread

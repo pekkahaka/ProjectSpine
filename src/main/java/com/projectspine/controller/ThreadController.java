@@ -17,7 +17,7 @@ public class ThreadController {
 	@Autowired
 	CommentService commentService;
 	
-	@RequestMapping("/")
+	@RequestMapping("")
 	public @ResponseBody List<CommentThread> listThreads() {
 		return commentService.listThreads();
 	}
