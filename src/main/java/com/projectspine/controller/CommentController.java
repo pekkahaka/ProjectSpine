@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.projectspine.model.Comment;
@@ -27,14 +28,14 @@ public class CommentController {
 		return commentService.getComment(id);
 	}
 	
-	@RequestMapping("all/{id}")
-	public @ResponseBody List<Comment> getAllComments(@PathVariable long id) {
-		return commentService.getComments(id);
+	@RequestMapping("")
+	public @ResponseBody List<Comment> getAllComments(@RequestParam long thread) {
+		return commentService.getComments(thread);
 	}
 	
 	@RequestMapping("page")
 	public  String getCommentsPage() {
-		return "pages/comments";
+		return "pages/page_comments";
 	}
 	
 

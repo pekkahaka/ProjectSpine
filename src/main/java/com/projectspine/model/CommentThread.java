@@ -1,11 +1,9 @@
 package com.projectspine.model;
 
-import org.springframework.data.annotation.Id;
 
 
 public class CommentThread {
 	
-	@Id
 	long id;
 	
 	/** The title of the thread */
