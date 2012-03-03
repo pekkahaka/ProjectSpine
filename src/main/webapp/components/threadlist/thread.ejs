@@ -1,0 +1,11 @@
+<% $.each(this, function(i, thread){ %>
+    <li <%= ($el) -> $el.model(thread) %>>
+    <h2 class="editable" prop="title"> <%= thread.title %> </h2>
+    <p>
+    	<span class="editable" prop="creator"> <%= thread.creator %> </span>
+    	<a href='#' class='destroy'>X</a>
+    </p>
+    </li>
+<% }) %>
+  
+
