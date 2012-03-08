@@ -13,14 +13,14 @@ steal('jquery/class',
 	/**
 	 * A general list controller that handels basic list features
 	 */
-	$.Controller('PageController', {
+	$.Controller('Spine.PageController', {
 		  defaults : {
 			    baseurl: "/"
 		  },
 		  listensTo: ["pageChanged"]
 		},
 		{
-		pages : {},
+		pages : {}, //<< PageCache
 		"init": function(element , options ) {
 			console.log("init called");
 			this.pages[options.home] = this.createPage(options.home);
@@ -30,6 +30,7 @@ steal('jquery/class',
 			console.log("Change page to: " + data.url);
 		    
 			this.changePage(data.url, data.params);
+			this.updateUrl(data.url, data.params);
 		 },
 		 "changePage" :function(url, param) {
 			 
@@ -38,8 +39,7 @@ steal('jquery/class',
 				 this.pages[url] = this.createPage(url, param);
 			 }
 			 //1# Hide the old page
-			 this.animateOut( this.pages[url])
-			 
+			 this.animateOut( this.pages[url]);	 
 		 },
 		 "animateOut" : function(newPage) {
 			 var slideIn = this.animateIn;
@@ -68,6 +68,13 @@ steal('jquery/class',
 			 var url = "/" + theID + "/page";
 			 console.log("load page from: " + url)
 			 element.load(url);
+		 },
+		 "{window} popstate" : function(el, event) {
+			 console.log("history is part of me");
+			 this.changePage(event.originalEvent.state, {});
+		 },
+		 "updateUrl": function(url, params){
+			 history.pushState(url, null, url); //<< HTML5 magic
 		 }
 	});
 

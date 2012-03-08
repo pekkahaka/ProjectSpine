@@ -1,4 +1,5 @@
-steal('jquery')
+steal('jquery',
+	  'steal/less')
 .then('jquery/class',
       'jquery/model',
       'jquery/view/ejs',
@@ -13,5 +14,5 @@ steal('jquery')
       ,function(){
 	console.log("JS -Loading done !")
 	//Init main window
-	var pageController = new PageController('#page_container', {home: "threads"});
+	var pageController = new Spine.PageController('#page_container', {home: "threads"});
 })
