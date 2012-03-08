@@ -1,0 +1,14 @@
+<% $.each(this, function(i, comment){ %>
+    <li <%= ($el) -> $el.model(comment) %>>
+    <h2 class="editable" prop="title"> <%= comment.title %> </h2>
+    <p>
+    	<span class="editable" prop="creator"> <%= comment.creator %> </span>
+    	<a href='#' class='destroy'>X</a>
+    </p>
+    <p>
+    <%= comment.comment %>
+    </p>
+    </li>
+<% }) %>
+  
+

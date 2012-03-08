@@ -1,0 +1,36 @@
+@btn_color: #96B356;
+@btn_image: -moz-linear-gradient(center top , #9CBF3E, #77AA19);
+
+@default_border_color: #CCCCCC;
+@default_border: 1px solid @default_border_color;
+
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
+body {
+	font: 90% Arial, sans-serif;
+	text-decoration: none;
+	color: #505050;
+	list-style: none;
+	text-align: center;
+	background-color: #F0F0F0;
+}
+
+/*****************
+* Main stage
+*****************/
+#page_container{
+ width: 700px;
+ margin:auto;
+ position: relative;
+}
+
+.page{
+	width: 600px;
+	min-height: 600px;
+	background-color: white;
+	.rounded-corners();
+}
